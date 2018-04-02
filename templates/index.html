@@ -6,12 +6,9 @@
   </head>
   <body>
     <h1>HELLO DATA INCUBATOR!</h1>
-    <form action="/submit" method="post" enctype="multipart/form-data">
+    <form action="/image" method="post" enctype="multipart/form-data">
       <input type="file" name="image" accept="image/*">
       <button>Submit</button>
     </form>
-    {% if img %}
-      <img src="/image">
-    {% endif %}
   </body>
 </html>
