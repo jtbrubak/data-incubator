@@ -1,1 +1,1 @@
-web: export FLASK_APP=data_incubator.py; flask run
+web: python data_incubator.py ${PORT}
