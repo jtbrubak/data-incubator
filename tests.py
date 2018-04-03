@@ -1,6 +1,6 @@
 import data_incubator
 import unittest
-from StringIO import StringIO
+from io import StringIO
 
 class TestCase(unittest.TestCase):
 
