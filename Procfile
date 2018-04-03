@@ -1,1 +1,1 @@
-web: python data_incubator.py
+web: flask run
