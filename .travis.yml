@@ -6,4 +6,4 @@ install:
 before_script:
 - export FLASK_APP="data_incubator.py"
 - export FLASK_DEBUG=1
-script: tests.py
+script: python tests.py
