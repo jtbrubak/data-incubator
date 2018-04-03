@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, make_response
+import pdb
 app = Flask(__name__)
 
 @app.route('/')
@@ -7,10 +8,11 @@ def hello_world():
 
 @app.route('/image', methods=["POST"])
 def submit():
-    if not request.files.get('file', None):
-        return render_template('index.html')
-    else:
-        content_type = request.files['image'].content_type
-        response = make_response(request.files['image'].read())
-        response.headers.set('Content-Type', content_type)
-        return response
+    content_type = request.files['image'].content_type
+    response = make_response(request.files['image'].read())
+    response.headers.set('Content-Type', content_type)
+    return response
+
+@app.errorhandler(400)
+def redirect(error):
+    return render_template('index.html')

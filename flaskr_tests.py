@@ -1,8 +1,6 @@
-import os
 import data_incubator
 import unittest
-import tempfile
-from PIL import Image
+from StringIO import StringIO
 
 class TestCase(unittest.TestCase):
 
@@ -11,9 +9,10 @@ class TestCase(unittest.TestCase):
         self.app = data_incubator.app.test_client()
 
     def test_image_post(self):
-
-        rv = self.app.get('/')
-        assert b'No entries here so far' in rv.data
+        with open('test_image.png') as f:
+            raw_img = f.read()
+        rv = self.app.post('/image', content_type='multipart/form-data', data={'image': (StringIO(raw_img), 'test_image.png')})
+        assert rv.data == raw_img
 
 if __name__ == '__main__':
     unittest.main()
