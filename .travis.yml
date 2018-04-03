@@ -1,0 +1,9 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -p
+before_script:
+- export FLASK_APP="data_incubator.py"
+- export FLASK_DEBUG=1
+script: tests.py
