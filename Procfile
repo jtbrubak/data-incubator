@@ -1,1 +1,1 @@
-web: gunicorn app:data_incubator --log-file=-
+web: python data_incubator.py
