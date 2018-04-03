@@ -1,6 +1,6 @@
 import data_incubator
 import unittest
-from io import StringIO
+from io import BytesIO
 
 class TestCase(unittest.TestCase):
 
@@ -11,7 +11,7 @@ class TestCase(unittest.TestCase):
     def test_image_post(self):
         with open('test_image.png') as f:
             raw_img = f.read()
-        rv = self.app.post('/image', content_type='multipart/form-data', data={'image': (StringIO(raw_img), 'test_image.png')})
+        rv = self.app.post('/image', content_type='multipart/form-data', data={'image': (BytesIO(raw_img), 'test_image.png')})
         assert rv.data == raw_img
 
 if __name__ == '__main__':
